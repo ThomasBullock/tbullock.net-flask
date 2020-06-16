@@ -1,0 +1,6 @@
+body {
+  background: #68a9f9;
+  color: #3468ff; }
+  body input {
+    border: solid 1px #3468ff;
+    padding: 1rem; }
