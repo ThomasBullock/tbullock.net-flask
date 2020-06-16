@@ -1,0 +1,56 @@
+/********************
+|   Global Styles   |
+********************/
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/*******************
+  Utility Classes
+*******************/
+
+.page {
+  padding: $base-spacing;
+}
+
+.container {
+  padding: $base-spacing;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.truncate {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.alert {
+  padding: $small-spacing;
+  max-width: 600px;
+  margin: 0 auto;
+
+  &--success {
+    border: solid 1px $success;
+    color: $success;
+  }
+
+  &--warning {
+    border: solid 1px $warning;
+    color: $warning;
+  }
+}

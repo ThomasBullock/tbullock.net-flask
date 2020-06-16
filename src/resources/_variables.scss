@@ -1,8 +1,28 @@
+// Typography
+$base-font-family: "Bitter", serif;
+$heading-font-family: "Open Sans", sans-serif;
+
+$weight-light: 300;
+$weight-normal: 400;
+$weight-bold: 600;
+
+// base font size of html element
+$rootsize-base: 12;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
 // Other Sizes
-$base-spacing: 1rem;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
 
 // Radi
 $base-border-radius: 2px;
+
+// Borders
+$base-border: solid 1px $charcoal;
 
 // Animations
 $base-duration: 250ms;

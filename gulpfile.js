@@ -25,7 +25,7 @@ function clean() {
 }
 
 function watch() {
-  gulp.watch(paths.styles.src, styles);
+  gulp.watch("src/**/*.scss", styles);
 }
 
 // gulp.task("compileSass", function () {
