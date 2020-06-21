@@ -22,6 +22,10 @@ body {
   Utility Classes
 *******************/
 
+main {
+  padding: $base-spacing;
+}
+
 .page {
   padding: $base-spacing;
 }
@@ -43,6 +47,7 @@ body {
   padding: $small-spacing;
   max-width: 600px;
   margin: 0 auto;
+  text-align: center;
 
   &--success {
     border: solid 1px $success;

@@ -1,0 +1,13 @@
+.navbar {
+  display: flex;
+  padding: $base-spacing;
+  background: $oil;
+  color: $vapor;
+
+  a,
+  button {
+    color: $vapor;
+    padding-left: $small-spacing;
+    padding-right: $small-spacing;
+  }
+}

@@ -17,6 +17,9 @@ body {
 /*******************
   Utility Classes
 *******************/
+main {
+  padding: 1.5em; }
+
 .page {
   padding: 1.5em; }
 
@@ -34,7 +37,8 @@ body {
 .alert {
   padding: 0.75em;
   max-width: 600px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  text-align: center; }
   .alert--success {
     border: solid 1px #00c634;
     color: #00c634; }
@@ -97,3 +101,14 @@ textarea {
 .invalid {
   color: #e60036;
   margin-bottom: 0.75em; }
+
+.navbar {
+  display: flex;
+  padding: 1.5em;
+  background: #333333;
+  color: #f6f6f6; }
+  .navbar a,
+  .navbar button {
+    color: #f6f6f6;
+    padding-left: 0.75em;
+    padding-right: 0.75em; }
