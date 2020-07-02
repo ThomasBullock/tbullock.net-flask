@@ -1,0 +1,71 @@
+{% extends "layout.html" %} {% block content %}
+<div class="container">
+  <form method="POST" action="" novalidate>
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">{{ legend }}</legend>
+      <div class="form-group">
+        {{ form.title.label(class="") }} {% if form.title.errors %} {{
+        form.title(class="is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.title.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %} {{ form.title(class="") }} {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.tags.label(class="") }} {% if form.tags.errors %} {{
+        form.tags(class="is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.tags.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %} {{ form.tags(class="") }} {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.content.label(class="") }} {% if form.content.errors %} {{
+        form.content(class="is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.content.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %} {{ form.content(class="") }} {% endif %}
+      </div>
+    </fieldset>
+    <div class="form-group">
+      {{ form.submit(class="btn") }}
+    </div>
+  </form>
+  <div class="editor__wrapper">
+    <div class="editor__controls"><button id="save">Save</button></div>
+    <div id="editorjs" class="editor"></div>
+  </div>
+  <!-- <div id="content">
+    <h3>Hello ProseMirror</h3>
+
+    <p>This is editable text. You can focus it and start typing.</p>
+
+    <p>
+      To apply styling, you can select a piece of text and manipulate its
+      styling from the menu. The basic schema supports <em>emphasis</em>,
+      <strong>strong text</strong>,
+      <a href="http://marijnhaverbeke.nl/blog">links</a>,
+      <code>code font</code>, and <img src="/img/smiley.png" /> images.
+    </p>
+
+    <p>
+      Block-level structure can be manipulated with key bindings (try
+      ctrl-shift-2 to create a level 2 heading, or enter in an empty textblock
+      to exit the parent block), or through the menu.
+    </p>
+
+    <p>
+      Try using the “list” item in the menu to wrap this paragraph in a numbered
+      list.
+    </p>
+  </div> -->
+</div>
+{% endblock content %}

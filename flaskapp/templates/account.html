@@ -8,6 +8,12 @@
           <p class="text-secondary">{{ current_user.email }}</p>
         </div>
       </div>
+      <hr>
+        <section class="section-block">
+            <h2>Admin actions</h2>
+            <a href="/post/new">New Post</a>
+        </section>
+        <hr>
         <form method="POST" action="" enctype="multipart/form-data">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">

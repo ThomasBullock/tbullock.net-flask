@@ -20,8 +20,9 @@
     />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='styles/main.css') }}"
+      href="{{ url_for('static', filename='style.css') }}"
     />
+    <link rel="stylesheet" href="https://prosemirror.net/css/editor.css" />
   </head>
   <body>
     <!--[if lt IE 7]>
@@ -59,6 +60,10 @@
         {% endfor %} {% endif %} {% endwith %} {% block content %}{% endblock %}
       </div>
     </main>
-    <script src="" async defer></script>
+    <script
+      src="{{ url_for('static', filename='App.bundle.js') }}"
+      async
+      defer
+    ></script>
   </body>
 </html>

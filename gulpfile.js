@@ -4,11 +4,17 @@ const gulp = require("gulp");
 const sass = require("gulp-sass");
 const autoprefixer = require("gulp-autoprefixer");
 const del = require("del");
+const babel = require("gulp-babel");
+const uglify = require("gulp-uglify");
 
 var paths = {
   styles: {
-    src: "src/main.scss",
+    src: "src/scss/main.scss",
     dest: "flaskapp/static/styles",
+  },
+  js: {
+    src: "src/js/*.js",
+    dest: "flaskapp/static/js",
   },
 };
 
@@ -20,12 +26,25 @@ function styles() {
     .pipe(gulp.dest(paths.styles.dest));
 }
 
+function js() {
+  return gulp
+    .src(paths.js.src)
+    .pipe(babel())
+    .pipe(
+      uglify().on("error", function (e) {
+        console.log(e);
+      })
+    )
+    .pipe(gulp.dest(paths.js.dest));
+}
+
 function clean() {
-  return del(["static/styles/**/*"]);
+  return del(["static/styles/**/*", "static/js/**/*"]);
 }
 
 function watch() {
   gulp.watch("src/**/*.scss", styles);
+  gulp.watch(paths.js.src, js);
 }
 
 // gulp.task("compileSass", function () {
@@ -38,7 +57,7 @@ function watch() {
 //     .pipe(gulp.dest("css"));
 // });
 
-const build = gulp.series(clean, gulp.parallel(styles));
+const build = gulp.series(clean, gulp.parallel(styles, js));
 
 exports.styles = styles;
 exports.watch = watch;
