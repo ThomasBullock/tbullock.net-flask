@@ -34,6 +34,12 @@
         </div>
         {% else %} {{ form.content(class="") }} {% endif %}
       </div>
+      {% if legend == 'Update Post' %}
+      <div class="form-check">
+        {{ form.is_live(class="form-check-input") }} {{
+        form.is_live.label(class="form-check-label") }}
+      </div>
+      {% endif %}
     </fieldset>
     <div class="form-group">
       {{ form.submit(class="btn") }}

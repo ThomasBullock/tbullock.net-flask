@@ -24,21 +24,36 @@ hr {
   margin-bottom: $base-spacing / 2;
 }
 
+figure {
+  margin-bottom: $base-spacing;
+}
+
+ul {
+  margin-bottom: $base-spacing;
+}
+
 /*******************
   Utility Classes
 *******************/
 
 main {
   padding: $base-spacing;
+  flex: 1 1 100%;
 }
 
 .page {
   padding: $base-spacing;
 }
 
+.page-wrapper {
+  display: flex;
+  height: 92vh;
+}
+
 .container {
   padding: $base-spacing;
-  max-width: 80%;
+  width: 80%;
+  max-width: 800px;
   margin: 0 auto;
 }
 

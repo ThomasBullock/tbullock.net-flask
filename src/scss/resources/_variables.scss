@@ -27,3 +27,24 @@ $base-border: solid 1px $charcoal;
 // Animations
 $base-duration: 250ms;
 $base-timing: ease;
+
+$text-inputs-list: (
+  "[type='color']",
+  "[type='date']",
+  "[type='datetime']",
+  "[type='datetime-local']",
+  "[type='email']",
+  "[type='month']",
+  "[type='number']",
+  "[type='password']",
+  "[type='search']",
+  "[type='tel']",
+  "[type='text']",
+  "[type='time']",
+  "[type='url']",
+  "[type='week']",
+  "input:not([type])",
+  "textarea"
+);
+
+$all-text-inputs: assign-inputs($text-inputs-list);

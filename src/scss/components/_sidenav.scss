@@ -1,0 +1,17 @@
+.sidebar {
+  background: $monsoon;
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+  }
+
+  &__nav-link {
+    display: block;
+    transform: rotate(-90deg);
+    padding: $base-spacing / 2;
+    margin: $base-spacing / 2;
+  }
+}

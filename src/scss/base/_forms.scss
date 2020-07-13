@@ -17,8 +17,7 @@ label {
   margin-bottom: $base-spacing / 2;
 }
 
-input,
-textarea {
+#{$all-text-inputs} {
   appearance: none;
   background-color: $base-background-color;
   border: $base-border;
@@ -27,6 +26,15 @@ textarea {
   margin-bottom: $small-spacing;
   padding: $base-spacing / 3;
   width: 100%;
+
+  &:disabled {
+    background-color: shade($base-background-color, 35%);
+    cursor: not-allowed;
+
+    &:hover {
+      border: $base-border;
+    }
+  }
 }
 
 .invalid {

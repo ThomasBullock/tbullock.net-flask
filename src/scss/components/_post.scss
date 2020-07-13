@@ -1,0 +1,16 @@
+.post {
+  figure {
+    border: solid 1px $ebony;
+  }
+
+  figcaption {
+    border-top: solid 1px $ebony;
+    padding: $base-spacing / 2;
+    background: $oil;
+    color: $vapor;
+  }
+
+  &__image {
+    @include img-responsive();
+  }
+}
