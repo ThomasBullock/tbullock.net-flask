@@ -31,3 +31,16 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
+
+class Project(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    comments = db.Column(db.String(500), nullable=False)
+    image_url = db.Column(db.String(200))
+    image_public_id = db.Column(db.String(200))
+    url_link = db.Column(db.String(200))
+    github_link = db.Column(db.String(200))
+    date_launched = db.Column(db.DateTime, nullable=False,
+                            default=datetime.utcnow)
+    tags = db.Column(db.String(150))

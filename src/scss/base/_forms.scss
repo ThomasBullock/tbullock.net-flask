@@ -37,6 +37,22 @@ label {
   }
 }
 
+.form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1 1 100%;
+
+  &--half {
+    flex: 1 1 45%;
+    &:nth-of-type(2n) {
+      margin-right: $base-spacing * 2;
+    }
+  }
+}
+
 .invalid {
   color: $warning;
   margin-bottom: $small-spacing;

@@ -1,9 +1,5 @@
 {% extends "layout.html" %} {% block content %}
 <h1>Projects</h1>
-<p>
-  <strong
-    >VHS roof party ramps normcore mixtape plaid copper mug meditation. </strong
-  >Yr aesthetic green juice cred fam. Glossier kale chips yuccie hammock
-  everyday carry etsy asymmetrical waistcoat.
-</p>
-{% endblock content %}
+{% for project in projects %}
+<a href="/projects/{{project.id}}">{{project.title}}</a>
+{% endfor %} {% endblock content %}

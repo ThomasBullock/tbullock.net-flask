@@ -1,0 +1,91 @@
+{% extends "layout.html" %} {% block content %}
+<form class="form" method="POST" action="" novalidate>
+  {{ form.hidden_tag() }}
+  <fieldset class="form-group">
+    <legend class="border-bottom mb-4">{{ legend }}</legend>
+  </fieldset>
+  <div class="form-group">
+    {{ form.title.label(class="") }} {% if form.title.errors %} {{
+    form.title(class="is-invalid") }}
+    <div class="invalid-feedback">
+      {% for error in form.title.errors %}
+      <span>{{ error }}</span>
+      {% endfor %}
+    </div>
+    {% else %} {{ form.title(class="") }} {% endif %}
+  </div>
+  <div class="form-group">
+    {{ form.description.label(class="") }} {% if form.description.errors %} {{
+    form.description(class="is-invalid") }}
+    <div class="invalid-feedback">
+      {% for error in form.description.errors %}
+      <span>{{ error }}</span>
+      {% endfor %}
+    </div>
+    {% else %} {{ form.description(class="") }} {% endif %}
+  </div>
+  <div class="form-group">
+    {{ form.tags.label(class="") }} {% if form.tags.errors %} {{
+    form.tags(class="is-invalid") }}
+    <div class="invalid-feedback">
+      {% for error in form.tags.errors %}
+      <span>{{ error }}</span>
+      {% endfor %}
+    </div>
+    {% else %} {{ form.tags(class="") }} {% endif %}
+  </div>
+  <div class="form-group">
+    {{ form.url_link.label(class="") }} {% if form.url_link.errors %} {{
+    form.url_link(class="is-invalid") }}
+    <div class="invalid-feedback">
+      {% for error in form.url_link.errors %}
+      <span>{{ error }}</span>
+      {% endfor %}
+    </div>
+    {% else %} {{ form.url_link(class="") }} {% endif %}
+  </div>
+  <div class="form-group">
+    {{ form.github_link.label(class="") }} {% if form.github_link.errors %} {{
+    form.github_link(class="is-invalid") }}
+    <div class="invalid-feedback">
+      {% for error in form.github_link.errors %}
+      <span>{{ error }}</span>
+      {% endfor %}
+    </div>
+    {% else %} {{ form.github_link(class="") }} {% endif %}
+  </div>
+  <div class="form-group form-group--half">
+    {{ form.image_url.label(class="") }} {% if form.image_url.errors %} {{
+    form.image_url(class="is-invalid", placeholder="click to upload file") }}
+    <div class="invalid-feedback">
+      {% for error in form.image_url.errors %}
+      <span>{{ error }}</span>
+      {% endfor %}
+    </div>
+    {% else %} {{ form.image_url(class="") }} {% endif %}
+  </div>
+  <div class="form-group form-group--half">
+    {{ form.image_public_id.label(class="") }} {% if form.image_public_id.errors
+    %} {{ form.image_public_id(class="is-invalid") }}
+    <div class="invalid-feedback">
+      {% for error in form.image_public_id.errors %}
+      <span>{{ error }}</span>
+      {% endfor %}
+    </div>
+    {% else %} {{ form.image_public_id(class="") }} {% endif %}
+  </div>
+  <div class="form-group">
+    {{ form.comments.label(class="") }} {% if form.comments.errors %} {{
+    form.comments(class="is-invalid") }}
+    <div class="invalid-feedback">
+      {% for error in form.comments.errors %}
+      <span>{{ error }}</span>
+      {% endfor %}
+    </div>
+    {% else %} {{ form.comments(class="") }} {% endif %}
+  </div>
+  <div class="form-group">
+    {{ form.submit(class="btn") }}
+  </div>
+</form>
+{% endblock content %}

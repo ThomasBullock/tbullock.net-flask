@@ -1,4 +1,4 @@
-from flask import (render_template, Blueprint)
+from flask import (render_template, request, flash, Blueprint, make_response, json)
 from flask_login import login_required
 from cloudinary.uploader import upload
 from cloudinary.utils import cloudinary_url
@@ -14,10 +14,6 @@ def home():
 def about():
     return render_template('about.html')
 
-@main.route("/projects")
-def projects():
-    return render_template('projects.html')
-
 @main.route("/upload", methods=['POST'])
 @login_required
 def upload_file():
@@ -32,11 +28,8 @@ def upload_file():
             data = {
                 "message": "No file part"
             }
-            response = app.response_class(
-                response=json.dumps(data),
-                status=400,
-                mimetype='application/json'
-            )
+            response = make_response(json.dumps(data), 400)
+            
             return response
         file = request.files['image']
         # if user does not select file, browser also
@@ -46,17 +39,14 @@ def upload_file():
             data = {
                 "message": "No selected file"
             }
-            response = app.response_class(
-                response=json.dumps(data),
-                status=400,
-                mimetype='application/json'
-            )
+
+            response = make_response(json.dumps(data), 400)
             return response
         if file and allowed_file(file.filename):
             # print(file)
             upload_result = upload(file)
             print(upload_result)
-            reponse_data = {
+            response_data = {
                 "success" : 1,
                 "file": {
                     "url": upload_result['url'],
@@ -65,10 +55,10 @@ def upload_file():
                     "height": upload_result['height']
                 }
             }
-   
-            response = app.response_class(
-                response=json.dumps(reponse_data),
-                status=200,
-                mimetype='application/json'
-            )
+            response = make_response(json.dumps(response_data), 200)
+            # response = app.response_class(
+            #     response=json.dumps(reponse_data),
+            #     status=200,
+            #     mimetype='application/json'
+            # )
             return response
