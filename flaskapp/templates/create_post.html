@@ -50,4 +50,6 @@
     <div id="editorjs" class="editor"></div>
   </div>
 </div>
-{% endblock content %}
+{% endblock content %} {% block scripts %}
+<script src="{{ url_for('static', filename='Editor.bundle.js') }}"></script>
+{% endblock scripts %}

@@ -2,4 +2,17 @@
 <h1>Projects</h1>
 {% for project in projects %}
 <a href="/projects/{{project.id}}">{{project.title}}</a>
-{% endfor %} {% endblock content %}
+{% endfor %}
+<div id="vm" class="projects">
+  <p>{{ greeting }}</p>
+  <p>[[ greeting ]]</p>
+</div>
+
+{% endblock content %} {% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/JavaScript">
+  // convert to json in route
+    var x = '{{ projects|tojson }}'
+</script>
+<script src="{{ url_for('static', filename='Project.bundle.js') }}"></script>
+{% endblock scripts %}

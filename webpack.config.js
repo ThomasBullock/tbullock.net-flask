@@ -42,6 +42,8 @@ const config = {
   entry: {
     // we only have 1 entry, but I've set it up for multiple in the future
     App: "./src/js/main.js",
+    Editor: "./src/js/modules/editor.js",
+    Project: "./src/js/modules/projects.js",
   },
   // we're using sourcemaps and here is where we specify which kind of sourcemap to use
   devtool: "source-map",
