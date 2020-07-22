@@ -1,0 +1,89 @@
+#{$all-buttons} {
+  appearance: none;
+  cursor: pointer;
+  display: inline-block;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn {
+  border-radius: $base-border-radius;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  padding: $base-spacing $base-spacing * 4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: $weight-bold;
+  outline: none;
+  position: relative;
+  transition: all $base-duration;
+}
+
+/* Pseudo elements for icons */
+.btn:before {
+  font-family: "icomoon";
+  font-style: normal;
+  font-weight: $weight-normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 2.5;
+  position: relative;
+  padding-right: $base-spacing / 2;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transition: all $base-duration;
+}
+
+.btn-primary {
+  border: 1px solid $vapor;
+  color: $vapor;
+  overflow: hidden;
+  color: #fff;
+  background: $success;
+
+  &:hover {
+    background: darken($success, 5%);
+  }
+}
+
+.btn-icon-left:before,
+.btn-icon-right:before {
+  transition: all $base-duration;
+}
+
+/* Button 4a */
+.btn-icon-right:before {
+  position: absolute;
+  height: 100%;
+  font-size: 125%;
+  line-height: 2.5;
+
+  left: 130%;
+  top: 0;
+}
+
+.btn-icon-right:hover:before {
+  left: 80%;
+}
+
+/* Button 4b */
+.btn-icon-left:before {
+  position: absolute;
+  height: 100%;
+  font-size: 125%;
+  line-height: 2.5;
+
+  left: -50%;
+  top: 0;
+}
+
+.btn-icon-left:hover:before {
+  left: 10%;
+}

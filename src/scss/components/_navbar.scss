@@ -6,8 +6,39 @@
 
   a,
   button {
-    color: $vapor;
-    padding-left: $small-spacing;
-    padding-right: $small-spacing;
+  }
+
+  &__brand {
+    h1 {
+      font-family: $base-font-family;
+      font-weight: $weight-normal;
+      font-size: $base-spacing;
+
+      // font-size: 72px;
+      background: -webkit-linear-gradient($melon, $scarlet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+.nav-link {
+  text-decoration: none;
+  color: $vapor;
+  padding-left: $small-spacing;
+  padding-right: $small-spacing;
+
+  &--rotate-left {
+    display: block;
+    transform: rotate(-90deg);
+    padding: $base-spacing / 2;
+    margin: $base-spacing / 2;
+  }
+
+  &--rotate-right {
+    display: block;
+    transform: rotate(90deg);
+    padding: $base-spacing / 2;
+    margin: $base-spacing / 2;
   }
 }

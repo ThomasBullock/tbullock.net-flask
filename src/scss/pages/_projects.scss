@@ -1,0 +1,10 @@
+.projects {
+  &__admin {
+    display: flex;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+}

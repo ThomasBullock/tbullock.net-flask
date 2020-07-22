@@ -1,6 +1,15 @@
 {% extends "layout.html" %} {% block content %}
 <article class="post">
-  <h1>{{post.title}}</h1>
+  <header class="post__header">
+    <h1>{{post.title}}</h1>
+    {% if current_user.is_authenticated %}
+    <a
+      class="btn btn-primary btn-icon-right icon-edit-right"
+      href="/posts/{{post.id}}/update"
+      >Edit</a
+    >
+    {% endif %}
+  </header>
   {% for block in content %} {% if block.type == 'header' %}
   <h2>{{block.data.text}}</h2>
   {% elif block.type == 'image' %}

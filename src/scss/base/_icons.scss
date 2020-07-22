@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "icomoon";
+  src: url("/static/fonts/icomoon.eot");
+  src: url("/static/fonts/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("/static/fonts/icomoon.woff") format("woff"),
+    url("/static/fonts/icomoon.ttf") format("truetype"),
+    url("/static/fonts/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon-tick-right:before {
+  content: "\ea10";
+}
+
+.icon-plus-right:before {
+  content: "\ea0a";
+}
+
+.icon-edit-left:before {
+  content: "\e905";
+}
+
+.icon-edit-right:before {
+  content: "\e905";
+}
+
+.icon-settings-right:before {
+  content: "\e993";
+}
+
+.icon-arrow-left:before {
+  content: "\ea38";
+}
+
+.icon-arrow-right:before {
+  content: "\ea34";
+}

@@ -1,4 +1,13 @@
 .post {
+  background: $white;
+  padding: $base-spacing;
+  border-radius: $base-border-radius;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
   figure {
     border: solid 1px $ebony;
   }

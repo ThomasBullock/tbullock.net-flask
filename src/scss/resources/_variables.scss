@@ -1,6 +1,6 @@
 // Typography
-$base-font-family: "Bitter", serif;
-$heading-font-family: "Open Sans", sans-serif;
+$base-font-family: "Raleway", sans-serif;
+$heading-font-family: "Roboto", sans-serif;
 
 $weight-light: 300;
 $weight-normal: 400;
@@ -14,7 +14,7 @@ $base-line-height: 1.5;
 $heading-line-height: 1.2;
 
 // Other Sizes
-$base-spacing: $base-line-height * 1em;
+$base-spacing: 1rem; // $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
@@ -48,3 +48,12 @@ $text-inputs-list: (
 );
 
 $all-text-inputs: assign-inputs($text-inputs-list);
+
+$_buttons-list: (
+  "button",
+  "[type='button']",
+  "[type='reset']",
+  "[type='submit']"
+);
+
+$all-buttons: assign-inputs($_buttons-list);

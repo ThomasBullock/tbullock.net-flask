@@ -14,6 +14,10 @@ def home():
 def about():
     return render_template('about.html')
 
+@main.route("/design-system")
+def design():
+    return render_template('design-system.html')
+
 @main.route("/upload", methods=['POST'])
 @login_required
 def upload_file():

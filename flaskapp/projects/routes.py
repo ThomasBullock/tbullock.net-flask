@@ -1,4 +1,4 @@
-from flask import (render_template, Blueprint, flash, json,)
+from flask import (render_template, Blueprint, flash, json, request)
 from flaskapp.projects.forms import ProjectForm
 from flaskapp import db
 from flaskapp.models import Project
@@ -38,3 +38,31 @@ def new_project():
         db.session.commit()
         flash('Your post has been created!', 'success')
     return render_template('create_project.html', form=form)
+
+@projects.route("/projects/<int:project_id>/update", methods=['GET', 'POST'])
+@login_required
+def update_project(project_id):
+    project = Project.query.get_or_404(project_id)
+    form = ProjectForm()
+    if form.validate_on_submit():
+        project.title = form.title.data
+        project.description = form.description.data
+        project.comments = form.comments.data
+        project.image_url = form.image_url.data
+        project.image_public_id = form.image_public_id.data
+        project.url_link = form.url_link.data
+        project.github_link = form.github_link.data
+        project.tags = form.tags.data
+        db.session.commit()
+        flash('Your project has been updated!', 'success')
+    elif request.method == 'GET':
+        form.title.data = project.title
+        form.description.data = project.description
+        form.comments.data = project.comments
+        form.url_link.data = project.url_link
+        form.image_url.data = project.image_url
+        form.image_public_id.data = project.image_public_id 
+        form.github_link.data = project.github_link
+        form.tags.data = project.tags
+    return render_template('create_project.html', title='Update Project',
+                           form=form, legend='Update Project')

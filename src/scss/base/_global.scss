@@ -47,7 +47,8 @@ main {
 
 .page-wrapper {
   display: flex;
-  height: 92vh;
+  height: calc(100vh - 44px);
+  background: $oil;
 }
 
 .container {
@@ -61,6 +62,10 @@ main {
   width: 100%;
   margin-top: $base-spacing;
   margin-bottom: $base-spacing;
+}
+
+.img-responsive {
+  @include img-responsive;
 }
 
 .truncate {
@@ -85,4 +90,20 @@ main {
     border: solid 1px $warning;
     color: $warning;
   }
+}
+
+.margin-above {
+  margin-top: $base-spacing;
+}
+
+.margin-right {
+  margin-right: $base-spacing;
+}
+
+.margin-below {
+  margin-bottom: $base-spacing;
+}
+
+.margin-left {
+  margin-left: $base-spacing;
 }
