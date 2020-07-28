@@ -64,6 +64,12 @@ main {
   margin-bottom: $base-spacing;
 }
 
+.flex-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 .img-responsive {
   @include img-responsive;
 }

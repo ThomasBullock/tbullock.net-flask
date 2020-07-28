@@ -1,0 +1,23 @@
+{% macro card(post) %}
+<div class="card">
+  <a href="/posts/{{post.id}}">
+    <div class="card__image">
+      <img
+        class="img-responsive"
+        src="https://thumbs.dreamstime.com/b/binary-matrix-computer-code-seamless-background-binary-cod-data-programming-93689355.jpg"
+        alt="post thumbnail"
+      />
+    </div>
+  </a>
+  <div class="card__header text-melon">
+    {{ post.title }}
+  </div>
+  <div class="card__copy">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis
+      sunt neque facilis culpa molestiae necessitatibus delectus veniam
+      provident.
+    </p>
+  </div>
+</div>
+{% endmacro %}

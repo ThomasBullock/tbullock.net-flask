@@ -1,6 +1,7 @@
 .projects {
   &__admin {
     display: flex;
+    justify-content: flex-end;
   }
 
   &__footer {

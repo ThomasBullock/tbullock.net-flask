@@ -1,5 +1,6 @@
-{% extends "layout.html" %} {% block content %}
+{% from 'macros.html' import card %} {% extends "layout.html" %} {% block
+content %}
 <h1>Blog</h1>
-{% for post in posts %}
-<a class="nav-link" href="/posts/{{post.id}}">{{post.title}}</a>
-{% endfor %} {% endblock content %}
+<div class="flex-grid">
+  {% for post in posts %} {{ card(post) }} {% endfor %} {% endblock content %}
+</div>

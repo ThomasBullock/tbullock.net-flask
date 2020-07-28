@@ -3,6 +3,8 @@ import Header from "@editorjs/header";
 import List from "@editorjs/list";
 import InlineCode from "@editorjs/inline-code";
 import ImageTool from "@editorjs/image";
+import CodeTool from "@editorjs/code";
+import { fileFormating } from "../constants";
 
 const editor = new EditorJS({
   /**
@@ -10,6 +12,7 @@ const editor = new EditorJS({
    */
   holder: "editorjs",
   tools: {
+    code: CodeTool,
     header: {
       class: Header,
       inlineToolbar: ["link"],
@@ -51,6 +54,29 @@ if (saveButton) {
       .save()
       .then((outputData) => {
         console.log("Article data: ", outputData);
+        const codeBlocks = outputData.blocks.filter(
+          (block) => block.type === "code"
+        );
+
+        const isJavascript = fileFormating["js"].regex.test(
+          codeBlocks[0].data.code
+        );
+        const isCSS = fileFormating["css"].regex.test(codeBlocks[0].data.code);
+        const isHTML = fileFormating["html"].regex.test(
+          codeBlocks[0].data.code
+        );
+
+        console.log(isJavascript, isCSS, isHTML);
+        if (isJavascript) {
+          outputData.blocks[9].data.language = "js";
+        }
+        if (isCSS) {
+          outputData.blocks[9].data.language = "css";
+        }
+        if (isHTML) {
+          outputData.blocks[9].data.language = "html";
+        }
+        // outputData.blocks[9].data.code = formatted;
         contentField.value = JSON.stringify(outputData);
       })
       .catch((error) => {
@@ -63,6 +89,20 @@ if (saveButton) {
     const article = JSON.parse(contentField.value);
     console.log(article.blocks);
     editor.render({ blocks: article.blocks });
+  };
+
+  const formatCode = (data) => {
+    const isJavascript = fileFormating["js"].regex.test(data);
+
+    if (isJavascript) {
+      const formattings = fileFormating["js"].formattings;
+      formattings.forEach((process) => {
+        data = data.replace(process.regex, process.replacement);
+      });
+    }
+    console.log(data);
+    console.log(isJavascript);
+    return data;
   };
 
   editor.isReady

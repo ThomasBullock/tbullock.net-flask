@@ -16,6 +16,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+$modularscale: (
+  base: 1rem,
+  ratio: 1.2,
+);
+
 h1,
 h2,
 h3,

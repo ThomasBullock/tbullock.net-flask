@@ -63,12 +63,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 14);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 10:
+/***/ 14:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -117,12 +117,20 @@ var vm = new Vue({
       }
     }
   },
+  computed: {
+    isFirst: function isFirst() {
+      return this.currentProject === 0;
+    },
+    isLast: function isLast() {
+      return this.currentProject === this.projects.length - 1;
+    }
+  },
   created: function created() {
     // `this` points to the vm instance
     console.log("a is: " + this.project);
     // console.log(JSON.parse(this.dinger));
   },
-  template: "<div><project :data=\"projects[currentProject]\"></project>\n  <footer class=\"projects__footer\">\n    <button :disabled=\"currentProject === 0\" class=\"btn btn-primary btn-icon-left icon-arrow-left\" @click=\"changeProject('-')\">Previous</button>\n    <button :disabled=\"currentProject === projects.length - 1\" class=\"btn btn-primary btn-icon-right icon-arrow-right\" @click=\"changeProject('+')\">next</button></footer>\n  </div>"
+  template: "<div><project :data=\"projects[currentProject]\"></project>\n  <footer class=\"projects__footer\">\n    <button class=\"btn btn-primary\" :class=\"{'disabled': isFirst, 'btn-icon-left icon-arrow-left' : !isFirst}\" @click=\"changeProject('-')\">Previous</button>\n    <button class=\"btn btn-primary\" :class=\"{'disabled': isLast, 'btn-icon-right icon-arrow-right' : !isLast}\" @click=\"changeProject('+')\">next</button></footer>\n  </div>"
 });
 
 console.log(x);

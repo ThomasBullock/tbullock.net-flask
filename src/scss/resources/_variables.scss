@@ -1,6 +1,11 @@
+// Breakpoints
+$medium-screen: 600px;
+$large-screen: 900px;
+
 // Typography
 $base-font-family: "Raleway", sans-serif;
 $heading-font-family: "Roboto", sans-serif;
+$monospace-font-family: "Source Code Pro", monospace;
 
 $weight-light: 300;
 $weight-normal: 400;
@@ -23,6 +28,7 @@ $base-border-radius: 2px;
 
 // Borders
 $base-border: solid 1px $charcoal;
+$card-border: solid 1px $card-border-color;
 
 // Animations
 $base-duration: 250ms;

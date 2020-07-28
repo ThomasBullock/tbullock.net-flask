@@ -48,6 +48,14 @@ const vm = new Vue({
       }
     },
   },
+  computed: {
+    isFirst() {
+      return this.currentProject === 0;
+    },
+    isLast() {
+      return this.currentProject === this.projects.length - 1;
+    },
+  },
   created: function () {
     // `this` points to the vm instance
     console.log("a is: " + this.project);
@@ -55,8 +63,8 @@ const vm = new Vue({
   },
   template: `<div><project :data="projects[currentProject]"></project>
   <footer class="projects__footer">
-    <button :disabled="currentProject === 0" class="btn btn-primary btn-icon-left icon-arrow-left" @click="changeProject('-')">Previous</button>
-    <button :disabled="currentProject === projects.length - 1" class="btn btn-primary btn-icon-right icon-arrow-right" @click="changeProject('+')">next</button></footer>
+    <button class="btn btn-primary" :class="{'disabled': isFirst, 'btn-icon-left icon-arrow-left' : !isFirst}" @click="changeProject('-')">Previous</button>
+    <button class="btn btn-primary" :class="{'disabled': isLast, 'btn-icon-right icon-arrow-right' : !isLast}" @click="changeProject('+')">next</button></footer>
   </div>`,
 });
 

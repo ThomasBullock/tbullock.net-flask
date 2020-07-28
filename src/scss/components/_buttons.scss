@@ -19,6 +19,11 @@
   outline: none;
   position: relative;
   transition: all $base-duration;
+
+  &.disabled {
+    background: $disabled-color !important;
+    cursor: not-allowed;
+  }
 }
 
 /* Pseudo elements for icons */

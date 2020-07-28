@@ -33,7 +33,18 @@
     <li>{{item}}</li>
     {% endfor %}
   </ol>
+  {% elif block.type == 'code' %}
+  <pre>
+    <code class="language-{{block.data.language}}">
+      {{block.data.code}}
+    </code>
+  </pre>
   {% else %}
   <div>{{block.data.text}}</div>
   {% endif %} {% endfor %} {% endblock content %}
 </article>
+{% block scripts %}
+<script src="{{ url_for('static', filename='prism.js') }}"></script>
+<!-- <script src="https://myCDN.com/prism@v1.x/plugins/autoloader/prism-autoloader.min.js"></script> -->
+<script></script>
+{% endblock scripts %}

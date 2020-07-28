@@ -1,6 +1,7 @@
 from datetime import datetime
 from flaskapp import db, login_manager
 from flask_login import UserMixin
+from sqlalchemy_serializer import SerializerMixin
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -32,7 +33,8 @@ class Post(db.Model):
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
 
-class Project(db.Model):
+class Project(db.Model, SerializerMixin):
+    serialize_only = ('id', 'title', 'description', 'comments', 'image_url', 'image_public_id', 'url_link', 'github_link', 'tags', 'date_launched')
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(200), nullable=False)

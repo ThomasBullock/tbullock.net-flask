@@ -10,22 +10,8 @@ projects = Blueprint('projects', __name__)
 @projects.route("/projects")
 def all_projects():
     projects = Project.query.all()
-    print(projects)
-    resultlist = []
-    for u in projects:
-        print('>>>>>>>>>>>>>>>')
-        project_dict = {
-            "id": u.id,
-            "title": u.title,
-            "description": u.description,
-            "comments": u.comments,
-            "image_url": u.image_url,
-            "url_link": u.url_link,
-            "github_link": u.github_link,
-            "tags": u.tags
-        }
-        resultlist.append(project_dict)
-    return render_template('projects.html', projects=resultlist, greeting="Hello fabulous world!")
+    results = [project.to_dict() for project in projects] 
+    return render_template('projects.html', projects=results, greeting="Hello fabulous world!")
 
 @projects.route('/projects/new', methods=['GET', 'POST'])
 @login_required

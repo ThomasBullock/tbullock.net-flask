@@ -5,6 +5,8 @@ import "../scss/main.scss";
 const uploadProjectImage = document.getElementById("image_url");
 const uploadPublicId = document.getElementById("image_public_id");
 
+// window.Prism.manual = true;
+
 if (uploadProjectImage) {
   uploadProjectImage.addEventListener("click", () => {
     console.log("clicky file!");

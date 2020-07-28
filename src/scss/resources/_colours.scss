@@ -22,8 +22,10 @@ $black: #000000 !default;
 
 $success: #00c634;
 $warning: #e60036;
+$disabled-color: $base;
 
 $base-font-color: $oil;
+$card-border-color: $gainsboro;
 $base-background-color: $ghost;
 
 $scarlet: #ff1d58;
@@ -31,9 +33,17 @@ $melon: #f75990;
 $sky: #00ddff;
 
 .text-melon {
-  color: #f75990;
+  color: $melon;
+}
+
+.text-sky {
+  color: $sky;
 }
 
 .melon {
   background: $melon;
+}
+
+.sky {
+  background: $sky;
 }

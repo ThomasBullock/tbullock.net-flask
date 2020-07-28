@@ -1,0 +1,25 @@
+$card-background: lighten($card-border-color, 10%);
+
+.card {
+  background-color: $card-background;
+  border: $card-border;
+  border-radius: $base-border-radius;
+  box-shadow: 0 2px 4px darken($jet, 10%);
+  cursor: pointer;
+  //   flex-basis: 15em;
+  //   flex-grow: 1;
+  flex: 1 1 200px;
+  margin: 0 $base-spacing $base-spacing $base-spacing;
+  position: relative;
+  transition: all $base-duration ease-in-out;
+
+  &__header {
+    background-color: $card-background; // $card-header-background;
+    border-bottom: $card-border;
+    border-radius: $base-border-radius $base-border-radius 0 0;
+    font-weight: $weight-bold;
+    line-height: 1.5em;
+    padding: ($base-spacing / 3) ($base-spacing / 2);
+    transition: all $base-duration ease-in-out;
+  }
+}
