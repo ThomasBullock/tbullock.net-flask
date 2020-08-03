@@ -63,11 +63,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -97,7 +98,85 @@ module.exports = function (module) {
 };
 
 /***/ }),
-/* 1 */
+
+/***/ 12:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 15:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _ajax = __webpack_require__(3);
+
+var _ajax2 = _interopRequireDefault(_ajax);
+
+__webpack_require__(12);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var uploadProjectImage = document.getElementById("image_url");
+// import editor from "./modules/editor";
+
+var uploadPublicId = document.getElementById("image_public_id");
+
+var offCanvasMenuButton = document.getElementById("menu-trigger");
+var offCanvasMenu = document.querySelector(".mobile-menu");
+
+var navLinks = Array.from(document.querySelectorAll(".nav-link"));
+
+console.log(navLinks);
+
+console.log(offCanvasMenuButton);
+
+navLinks.forEach(function (link) {
+  link.addEventListener("click", function (e) {
+    link.classList.remove("is-visible");
+  });
+});
+
+// window.Prism.manual = true;
+
+if (uploadProjectImage) {
+  uploadProjectImage.addEventListener("click", function () {
+    console.log("clicky file!");
+    _ajax2.default.transport({
+      url: "http://localhost:5000/upload",
+      accept: "image/*",
+      progress: function progress(percentage) {
+        document.title = percentage + "%";
+      },
+      ratio: 95,
+      fieldName: "image"
+    }).then(function (res) {
+      console.log(res);
+      var _res$body$file = res.body.file,
+          url = _res$body$file.url,
+          public_id = _res$body$file.public_id;
+
+      console.log(url, public_id);
+      uploadProjectImage.value = url;
+      uploadPublicId.value = public_id;
+      console.dir(uploadPublicId);
+    }).catch(function (err) {
+      console.log(err);
+    });
+  });
+}
+
+offCanvasMenuButton.addEventListener("click", function (e) {
+  offCanvasMenuButton.classList.toggle("open");
+  offCanvasMenu.classList.toggle("is-visible");
+});
+
+/***/ }),
+
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -536,70 +615,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)(module)))
 
-/***/ }),
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: ENOENT: no such file or directory, open '/Users/colonelmot/Sites/tbullock.net-flask/src/scss/prism.css'\n    at /Users/colonelmot/Sites/tbullock.net-flask/node_modules/webpack/lib/NormalModule.js:141:35\n    at /Users/colonelmot/Sites/tbullock.net-flask/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /Users/colonelmot/Sites/tbullock.net-flask/node_modules/loader-runner/lib/LoaderRunner.js:203:19\n    at /Users/colonelmot/Sites/tbullock.net-flask/node_modules/enhanced-resolve/lib/CachedInputFileSystem.js:70:14\n    at processTicksAndRejections (internal/process/task_queues.js:75:11)");
-
-/***/ }),
-/* 11 */,
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _ajax = __webpack_require__(1);
-
-var _ajax2 = _interopRequireDefault(_ajax);
-
-__webpack_require__(10);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var uploadProjectImage = document.getElementById("image_url");
-// import editor from "./modules/editor";
-
-var uploadPublicId = document.getElementById("image_public_id");
-
-// window.Prism.manual = true;
-
-if (uploadProjectImage) {
-  uploadProjectImage.addEventListener("click", function () {
-    console.log("clicky file!");
-    _ajax2.default.transport({
-      url: "http://localhost:5000/upload",
-      accept: "image/*",
-      progress: function progress(percentage) {
-        document.title = percentage + "%";
-      },
-      ratio: 95,
-      fieldName: "image"
-    }).then(function (res) {
-      console.log(res);
-      var _res$body$file = res.body.file,
-          url = _res$body$file.url,
-          public_id = _res$body$file.public_id;
-
-      console.log(url, public_id);
-      uploadProjectImage.value = url;
-      uploadPublicId.value = public_id;
-      console.dir(uploadPublicId);
-    }).catch(function (err) {
-      console.log(err);
-    });
-  });
-}
-
 /***/ })
-/******/ ]);
+
+/******/ });
 //# sourceMappingURL=App.bundle.js.map

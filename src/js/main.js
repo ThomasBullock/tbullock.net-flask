@@ -5,6 +5,21 @@ import "../scss/main.scss";
 const uploadProjectImage = document.getElementById("image_url");
 const uploadPublicId = document.getElementById("image_public_id");
 
+const offCanvasMenuButton = document.getElementById("menu-trigger");
+const offCanvasMenu = document.querySelector(".mobile-menu");
+
+const navLinks = Array.from(document.querySelectorAll(".nav-link"));
+
+console.log(navLinks);
+
+console.log(offCanvasMenuButton);
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    link.classList.remove("is-visible");
+  });
+});
+
 // window.Prism.manual = true;
 
 if (uploadProjectImage) {
@@ -33,3 +48,8 @@ if (uploadProjectImage) {
       });
   });
 }
+
+offCanvasMenuButton.addEventListener("click", (e) => {
+  offCanvasMenuButton.classList.toggle("open");
+  offCanvasMenu.classList.toggle("is-visible");
+});

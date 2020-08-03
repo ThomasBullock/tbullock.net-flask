@@ -1,3 +1,5 @@
+import Vue from "vue";
+
 const adminProjectSelect = document.getElementById("admin-project-select");
 if (adminProjectSelect) {
   const adminProjectEdit = document.getElementById("admin-project-edit");
@@ -12,6 +14,7 @@ if (adminProjectSelect) {
 
 const Project = Vue.component("Project", {
   // ... options ...
+  runtimeCompiler: true,
   props: {
     data: {
       type: Object,
@@ -28,6 +31,7 @@ const Project = Vue.component("Project", {
 const vm = new Vue({
   // Again, vm is our Vue instance's name for consistency.
   el: "#vm",
+  runtimeCompiler: true,
   delimiters: ["[[", "]]"],
   data: {
     greeting: "Hello, Vue!",

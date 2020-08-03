@@ -1,3 +1,23 @@
+@function media-px-to-em($px) {
+  @return $px / ($px * 0 + 1) / 16 * 1em;
+}
+
+$small-screen: media-px-to-em(600px) !default;
+$medium-screen: media-px-to-em(992px) !default;
+$large-screen: media-px-to-em(1280px) !default;
+$small-screen-up: media-px-to-em(601px) !default;
+$medium-screen-up: media-px-to-em(993px) !default;
+$large-screen-up: media-px-to-em(1281px) !default;
+
+$small-and-down: "only screen and (max-width : #{$small-screen})" !default;
+$medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
+$medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
+
+// Grids
+$grid--tablet-up: "(min-width: #{$small-screen-up})";
+$grid--desktop-up: "(min-width: #{$medium-screen-up})";
+$grid--desktop-lg-up: "(min-width: #{$large-screen-up})";
+
 // Breakpoints
 $medium-screen: 600px;
 $large-screen: 900px;

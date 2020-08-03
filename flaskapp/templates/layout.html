@@ -40,6 +40,12 @@
     <![endif]-->
     <header>
       <nav class="navbar">
+        <button type="button" id="menu-trigger" class="sliding-panel-button">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <a class="navbar__brand nav-link" href="/"
           ><h1><span class="text-melon">Thomas</span> Bullock</h1></a
         >
@@ -73,6 +79,15 @@
           <a
             class="nav-link nav-link--rotate-left"
             href="{{ url_for('projects.all_projects') }}"
+            >Projects</a
+          >
+        </nav>
+      </div>
+      <div class="mobile-menu">
+        <nav class="mobile-menu__nav">
+          <a class="nav-link" href="{{ url_for('posts.all_posts') }}">Blog</a>
+          <a class="nav-link" href="{{ url_for('main.about') }}">About</a>
+          <a class="nav-link" href="{{ url_for('projects.all_projects') }}"
             >Projects</a
           >
         </nav>

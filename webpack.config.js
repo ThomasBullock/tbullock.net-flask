@@ -56,10 +56,22 @@ const config = {
     // name will be `App` because that is what we used above in our entry
     filename: "[name].bundle.js",
   },
-
+  resolve: {
+    alias: {
+      vue$: "vue/dist/vue.esm.js",
+    },
+    extensions: ["*", ".js", ".vue", ".json"],
+  },
   // remember we said webpack sees everthing as modules and how different loaders are responsible for different file types? Here is is where we implement them. Pass it the rules for our JS and our styles
   module: {
-    rules: [javascript, styles],
+    rules: [
+      javascript,
+      styles,
+      {
+        test: /\.vue$/,
+        loader: "vue-loader",
+      },
+    ],
   },
   // finally we pass it an array of our plugins - uncomment if you want to uglify
   plugins: [
