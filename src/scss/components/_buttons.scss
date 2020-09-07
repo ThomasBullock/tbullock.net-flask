@@ -18,10 +18,10 @@
   font-weight: $weight-bold;
   outline: none;
   position: relative;
-  transition: all $base-duration;
+  transition: background-color $base-duration;
 
   &.disabled {
-    background: $disabled-color !important;
+    background-color: $disabled-color !important;
     cursor: not-allowed;
   }
 }
@@ -51,10 +51,10 @@
   color: $vapor;
   overflow: hidden;
   color: #fff;
-  background: $success;
+  background-color: $success;
 
   &:hover {
-    background: darken($success, 5%);
+    background-color: darken($success, 5%);
   }
 }
 
